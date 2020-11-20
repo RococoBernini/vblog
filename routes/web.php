@@ -17,15 +17,17 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Auth::routes();
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Auth::routes();
 //
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', [App\Http\Controllers\AdminsController::class, 'index'])->name('admin.index');
 // Route::get('/admin', function () {
 //     return view('admin.index');
 // })->name('admin.index');
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\AdminsController::class, 'index'])->name('admin.index');
+Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show'])->name('post');
